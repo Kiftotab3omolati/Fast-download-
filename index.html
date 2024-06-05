@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neumorphism Design</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #F0F0F0; /* لون الخلفية الرمادي الفاتح */
+    }
+
+    .neumorphism-header {
+      background-color: #FFFFFF; /* لون الخلفية الأساسي للعنوان */
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 8px 8px 16px #e0e0e0, 
+                  -8px -8px 16px #ffffff; /* ظلال النيومورفيسم */
+      font-size: 24px;
+      font-weight: bold;
+      color: #333333; /* لون النص */
+      margin: 20px; /* هام: تعديل المسافة بين العنوان وحواف الشاشة */
+      width: calc(100% - 40px); /* الحساب لجعل العنوان يناسب عرض الموقع */
+      text-align: center;
+      margin-top: 20px; /* تعديل المسافة بين العنوان وأعلى الصفحة */
+    }
+
+    .neumorphism-container {
+      background-color: #FFFFFF; /* لون الخلفية الأساسي للصندوق */
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 8px 8px 16px #e0e0e0, 
+                  -8px -8px 16px #ffffff; /* ظلال النيومورفيسم */
+      margin: 20px; /* المسافة بين الصندوق وبقية العناصر */
+      width: calc(90% - 20px); /* الحساب لجعل الصندوق يناسب عرض الموقع */
+      display: flex;
+      align-items: center;
+    }
+
+    .neumorphism-input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      margin-right: 10px;
+      box-shadow: inset 4px 4px 8px #e0e0e0, 
+                  inset -4px -4px 8px #ffffff; /* ظلال النيومورفيسم للشريط */
+      outline: none; /* إزالة الحدود التي تظهر بعد النقر */
+    }
+
+    .neumorphism-button {
+      padding: 1px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #333333; /* تغيير لون النص إلى الأسود */
+      background-color: #FFFFFF; /* لون الخلفية للزر الأبيض */
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 4px 4px 8px #e0e0e0, 
+                  -4px -4px 8px #ffffff, 
+                  0 0 0 1px #FFFFFF; /* تغيير لون التأثير إلى الأبيض */
+    }
+
+    .neumorphism-button:hover {
+      background-color: #f0f0f0; /* تغيير لون الخلفية للزر عند التحويم */
+    }
+
+    .ad-container {
+      background-color: #FFFFFF; /* لون الخلفية للحاوية */
+      border-radius: 20px;
+      box-shadow: 8px 8px 16px #e0e0e0, 
+                  -8px -8px 16px #ffffff; /* ظلال النيومورفيسم */
+      width: 90%;
+      min-height: 150px; /* ارتفاع الحاوية */
+      max-height: 250px; /* ارتفاع الحاوية */
+      margin: 20px 0;
+    }
+
+    .result-container {
+      background-color: #FFFFFF; /* لون الخلفية للصندوق */
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 8px 8px 16px #e0e0e0, 
+                  -8px -8px 16px #ffffff; /* ظلال النيومورفيسم */
+      margin: 20px; /* المسافة بين الصندوق وبقية العناصر */
+      width: calc(90% - 20px); /* الحساب لجعل الصندوق يناسب عرض الموقع */
+      display: none; /* يتم إخفاء الصندوق افتراضيًا */
+    }
+  </style>
+</head>
+<body>
+  <div class="neumorphism-header">Neumorphism Design</div>
+  <div class="neumorphism-container">
+    <input type="text" class="neumorphism-input" placeholder="Enter text..." id="textInput">
+    <button class="neumorphism-button" onclick="showResult()">Show Result</button>
+  </div>
+  
+  <!-- إضافة الحاويات للإعلانات -->
+  <div class="ad-container" style="height: 180px;"></div>
+  <div class="ad-container" style="height: 200px;"></div>
+  <div class="ad-container" style="height: 220px;"></div>
+  <div class="ad-container" style="height: 240px;"></div>
+
+  <!-- صندوق النتيجة -->
+  <div class="result-container" id="resultContainer">
+    <!-- هنا يمكنك وضع المحتوى الذي تريده -->
+    <p id="resultText">Result content goes here...</p>
+  </div>
+
+  <script>
+    function showResult() {
+      var textInput = document.getElementById("textInput").value;
+      var resultContainer = document.getElementById("resultContainer");
+      var resultText = document.getElementById("resultText");
+
+      if (textInput === "1000.00") {
+        resultText.innerText = "ألف دينار جزائري";
+      } else if (textInput === "1001.00") {
+        resultText.innerText = "ألف ومائة";
+      } else if (textInput === "1002.00") {
+        resultText.innerText = "ألف ومائتان";
+      } else if (textInput === "1003.00") {
+        resultText.innerText = "ألف وثلاث مائة";
+      } else if (textInput === "1004.00") {
+        resultText.innerText = "ألف وأربع مائة";
+      } else if (textInput === "1005.00") {
+        resultText.innerText = "ألف وخمس مائة";
+      } else {
+        resultText.innerText = "Result content goes here...";
+      }
+
+      resultContainer.style.display = "block"; // عرض صندوق النتيجة عند الضغط على الزر
+
+      // التمرير إلى الصندوق بسرعة تتوافق مع ارتفاعه
+      window.scrollTo({
+        top: resultContainer.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+</body>
+</html>
